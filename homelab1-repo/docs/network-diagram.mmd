@@ -1,0 +1,47 @@
+%% Mermaid network diagram
+flowchart LR
+    subgraph Internet
+      WAN[ISP / Internet]
+    end
+
+    UDM[UDM Pro
+192.168.5.12]
+    SWITCH[USW-24-POE
+192.168.5.23]
+
+    WAN --> UDM --> SWITCH
+
+    HYP[Storage/Hypervisor
+Ryzen 1700X, 32GB, 1TB SSD boot
+10x8TB RAID5
+192.168.5.3]
+
+    PLEX[Plex VM
+192.168.5.4]
+    JELLY[Jellyfin VM
+192.168.5.6]
+    TRUENAS[TrueNAS VM
+192.168.5.7]
+    DOCKER[Docker Host VM
+192.168.5.8]
+    IMMICH[Immich VM
+192.168.5.9]
+    STASH[Stash VM
+192.168.5.10]
+    PAPERLESS[Paperless-ngx VM
+192.168.5.11]
+
+    SWITCH --- HYP
+    HYP --- PLEX
+    HYP --- JELLY
+    HYP --- TRUENAS
+    HYP --- DOCKER
+    HYP --- IMMICH
+    HYP --- STASH
+    HYP --- PAPERLESS
+
+    classDef device fill:#0ea5e9,stroke:#0369a1,color:#fff,stroke-width:1px;
+    classDef vm fill:#10b981,stroke:#065f46,color:#fff,stroke-width:1px;
+
+    class UDM,SWITCH,HYP device;
+    class PLEX,JELLY,TRUENAS,DOCKER,IMMICH,STASH,PAPERLESS vm;

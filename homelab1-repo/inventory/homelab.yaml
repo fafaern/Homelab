@@ -1,0 +1,37 @@
+# Homelab inventory (human-readable YAML)
+
+firewall:
+  model: Ubiquiti Dream Machine Pro
+  ip: 192.168.5.12  # original input listed 192.167.5.12
+
+switch:
+  model: Ubiquiti USW-24-POE
+  ip: 192.168.5.23
+
+hypervisor:
+  ip: 192.168.5.3
+  cpu: Ryzen 7 1700X
+  ram_gb: 32
+  boot_drive: 1TB SSD
+  storage:
+    layout: RAID5
+    disks: 10
+    per_disk_tb: 8
+    usable_tb_decimal: 72
+    usable_tib_binary: 65.5
+
+vms:
+  - name: Plex
+    ip: 192.168.5.4
+  - name: Jellyfin
+    ip: 192.168.5.6
+  - name: TrueNAS
+    ip: 192.168.5.7
+  - name: Docker Host
+    ip: 192.168.5.8
+  - name: Immich
+    ip: 192.168.5.9
+  - name: Stash
+    ip: 192.168.5.10
+  - name: Paperless-ngx
+    ip: 192.168.5.11
